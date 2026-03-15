@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<usuarios>
+    <usuario>
+        <nome>admin</nome>
+        <senha>senha_secreta_123</senha>
+        <tipo>administrador</tipo>
+    </usuario>
+    <usuario>
+        <nome>pablo</nome>
+        <senha>pablo123</senha>
+        <tipo>comum</tipo>
+    </usuario>
+</usuarios>

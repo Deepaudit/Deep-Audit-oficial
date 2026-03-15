@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Audit | Web Exploitation & Security</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --neon-blue: #00d2ff; --neon-green: #39ff14; }
+        body { background-color: #020202; color: #d1d5db; scroll-behavior: smooth; }
+        .glass-card { background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(59, 130, 246, 0.2); backdrop-filter: blur(10px); }
+        .vuln-card { border-left: 3px solid var(--neon-blue); transition: all 0.3s ease; }
+        .vuln-card:hover { border-left: 3px solid var(--neon-green); transform: translateX(5px); background: rgba(59, 130, 246, 0.05); }
+        .terminal-text { font-family: 'Courier New', Courier, monospace; color: var(--neon-green); }
+        .badge { font-size: 0.65rem; padding: 2px 6px; border-radius: 4px; background: #1e293b; color: var(--neon-blue); border: 1px solid var(--neon-blue); }
+    </style>
+</head>
+<body>
+
+    <nav class="p-4 border-b border-blue-900/30 flex justify-between items-center sticky top-0 bg-[#020202]/90 z-50">
+        <div class="flex items-center space-x-2">
+            <div class="w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
+            <span class="text-xl font-bold tracking-tighter text-white">DEEP<span class="text-blue-500">AUDIT</span></span>
+        </div>
+        <div class="text-xs terminal-text hidden md:block">STATUS: RESEARCHING_VULNERABILITIES...</div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        
+        <header class="mb-16">
+            <h1 class="text-4xl font-black text-white mb-4">Web Application <span class="text-blue-500">Vulnerability Audit</span></h1>
+            <p class="text-gray-400 max-w-3xl border-l-2 border-gray-800 pl-4">Metodologia baseada no OWASP Top 10 aliada a técnicas de exploração de lógica de negócios e infraestrutura avançada.</p>
+        </header>
+
+        <div class="mb-12">
+            <h2 class="text-xl font-bold text-blue-400 mb-6 flex items-center uppercase tracking-widest">
+                <i class="fas fa-list-ol mr-3"></i> Core: OWASP Top 10
+            </h2>
+            <div class="grid md:grid-cols-2 gap-4">
+                
+                <div class="vuln-card glass-card p-4 rounded-r-lg">
+                    <div class="flex justify-between items-start">
+                        <h3 class="font-bold text-white">A01: Broken Access Control</h3>
+                        <span class="badge">Crítico</span>
+                    </div>
+                    <p class="text-sm mt-2 text-gray-400">Bypass de permissões e IDOR (Insecure Direct Object Reference). Acesso a dados de terceiros manipulando IDs.</p>
+                </div>
+
+                <div class="vuln-card glass-card p-4 rounded-r-lg">
+                    <div class="flex justify-between items-start">
+                        <h3 class="font-bold text-white">A03: Injection</h3>
+                        <span class="badge">Crítico</span>
+                    </div>
+                    <p class="text-sm mt-2 text-gray-400">SQLi, NoSQLi, HTML Injection e OS Command Injection. Execução de comandos através de inputs não sanitizados.</p>
+                </div>
+
+                <div class="vuln-card glass-card p-4 rounded-r-lg">
+                    <div class="flex justify-between items-start">
+                        <h3 class="font-bold text-white">A10: SSRF</h3>
+                        <span class="badge">Alto</span>
+                    </div>
+                    <p class="text-sm mt-2 text-gray-400">Server-Side Request Forgery. Induzir o servidor a realizar requisições internas para mapear a rede ou extrair metadados.</p>
+                </div>
+
+                <div class="vuln-card glass-card p-4 rounded-r-lg">
+                    <div class="flex justify-between items-start">
+                        <h3 class="font-bold text-white">A07: Auth Failures</h3>
+                        <span class="badge">Alto</span>
+                    </div>
+                    <p class="text-sm mt-2 text-gray-400">Falhas em sessões, Credential Stuffing e falta de proteção contra brute force em sistemas de login.</p>
+                </div>
+
+                <div class="md:col-span-2 text-center text-xs text-gray-600 mt-2 italic underline cursor-pointer hover:text-blue-500">
+                    Ver todas as 10 categorias do OWASP...
+                </div>
+            </div>
+        </div>
+
+        <div class="py-12 border-t border-blue-900/20">
+            <h2 class="text-xl font-bold text-green-400 mb-6 flex items-center uppercase tracking-widest">
+                <i class="fas fa-biohazard mr-3"></i> Advanced: Além do Padrão
+            </h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                
+                <div class="glass-card p-6 rounded-lg border-t-2 border-green-500/50">
+                    <div class="text-green-500 text-xs font-mono mb-2">[ PARAM_TAMPERING ]</div>
+                    <h4 class="font-bold text-white mb-2 uppercase">Adulteração de Parâmetros</h4>
+                    <p class="text-xs text-gray-400">Manipulação de campos hidden, cookies e strings de consulta para alterar preços, quantidades ou estados da aplicação.</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-lg border-t-2 border-green-500/50">
+                    <div class="text-green-500 text-xs font-mono mb-2">[ LOGIC_EXPLOIT ]</div>
+                    <h4 class="font-bold text-white mb-2 uppercase">Lógica de Negócio</h4>
+                    <p class="text-xs text-gray-400">Exploração de falhas no fluxo da aplicação, como pular etapas de pagamento ou transferir valores negativos.</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-lg border-t-2 border-green-500/50">
+                    <div class="text-green-500 text-xs font-mono mb-2">[ RACE_CONDITION ]</div>
+                    <h4 class="font-bold text-white mb-2 uppercase">Race Conditions</h4>
+                    <p class="text-xs text-gray-400">Aproveitamento de atrasos no processamento do banco de dados para duplicar cupons ou saques via concorrência.</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-lg border-t-2 border-green-500/50">
+                    <div class="text-green-500 text-xs font-mono mb-2">[ REQ_SMUGGLING ]</div>
+                    <h4 class="font-bold text-white mb-2 uppercase">HTTP Request Smuggling</h4>
+                    <p class="text-xs text-gray-400">Ataques sofisticados em nível de protocolo HTTP para sequestrar sessões entre Proxies e Backends.</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-lg border-t-2 border-green-500/50">
+                    <div class="text-green-500 text-xs font-mono mb-2">[ API_AUDIT ]</div>
+                    <h4 class="font-bold text-white mb-2 uppercase">API Insecurity</h4>
+                    <p class="text-xs text-gray-400">Análise de endpoints REST/GraphQL, tokens JWT sem verificação e BOLA (Broken Object Level Authorization).</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-lg border-t-2 border-green-500/50">
+                    <div class="text-green-500 text-xs font-mono mb-2">[ NET_SURFACE ]</div>
+                    <h4 class="font-bold text-white mb-2 uppercase">Surface Mapping</h4>
+                    <p class="text-xs text-gray-400">Identificação de serviços expostos, portas abertas e versões de servidores vulneráveis que sustentam a Web App.</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="border-t border-gray-900 p-8 text-center bg-black/50">
+        <p class="text-xs text-gray-600 terminal-text">DEEP AUDIT // RESEARCHED BY PABLO ELIEZER // 2026</p>
+    </footer>
+
+</body>
+</html>
