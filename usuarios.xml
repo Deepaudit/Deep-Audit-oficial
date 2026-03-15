@@ -6,8 +6,8 @@
         <tipo>administrador</tipo>
     </usuario>
     <usuario>
-        <nome>pablo</nome>
-        <senha>pablo123</senha>
+        <nome>username</nome>
+        <senha>helloword12345</senha>
         <tipo>comum</tipo>
     </usuario>
 </usuarios>
